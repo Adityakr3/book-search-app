@@ -11,9 +11,11 @@ const BookshelfPage = () => {
 
   return (
     <div>
-      <h1>My Bookshelf</h1>
+      <div className='flex justify-between mt-4 mx-11'>
+      <h1 className='font-bold text-4xl text-center px-4'>My Bookshelf</h1>
+      <button  className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onClick={() => window.location.href = '/'}>Back to Search</button>
+      </div>
       <Bookshelf books={books} />
-      <button onClick={() => window.location.href = '/'}>Back to Search</button>
     </div>
   );
 };

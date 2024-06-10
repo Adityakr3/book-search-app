@@ -10,7 +10,7 @@ const BookSearch = ({ addToBookshelf }) => {
     const query = e.target.value;
     setQuery(query);
 
-    if (query.length > 2) {
+    if (query.length > 1) {
       const response = await axios.get(`https://openlibrary.org/search.json?q=${query}&limit=10&page=1`);
       console.log(response.data.docs);
       setBooks(response.data.docs);
@@ -21,8 +21,8 @@ const BookSearch = ({ addToBookshelf }) => {
 
   return (
     <div>
-      <input type="text" value={query} onChange={searchBooks} placeholder="Search for books..." />
-      <div className="book-list">
+      <input className='w-96 p-4 rounded-lg text-neutral-950 bg-slate-100' type="text" value={query} onChange={searchBooks} placeholder="Search for books..." />
+      <div className="book-list grid grid-cols-2 gap-4">
         {books.map((book) => (
           <BookCard key={book.key} book={book} addToBookshelf={addToBookshelf} />
         ))}
